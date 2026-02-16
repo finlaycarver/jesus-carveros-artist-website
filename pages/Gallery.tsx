@@ -57,81 +57,82 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
   return (
     <div id="cat_main">
       <div id="cat_left">
-        {showSidebar && (
-          <ul className="cat-list">
-            {isWorkSection ? (
-              <>
-                <li>
-                  <Link 
-                    to="/work/adhd" 
-                    className={(location.pathname === '/work/adhd' || isRootWork) ? 'active' : ''}
-                  >
-                    ADHD
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/work/punk-plates" 
-                    className={location.pathname === '/work/punk-plates' ? 'active' : ''}
-                  >
-                    PUNK PLATES
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/work/but-i-love-you" 
-                    className={location.pathname === '/work/but-i-love-you' ? 'active' : ''}
-                  >
-                    BUT I LOVE YOU
-                  </Link>
-                </li>
-              </>
-            ) : isPortraitSection ? (
-              <>
-                <li>
-                  <Link 
-                    to="/portraits/mexican-wrestler-one" 
-                    className={(location.pathname === '/portraits/mexican-wrestler-one' || isRootPortraits) ? 'active' : ''}
-                  >
-                    Mexican Wrestler One
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/portraits/mexican-wrestler-two" 
-                    className={location.pathname === '/portraits/mexican-wrestler-two' ? 'active' : ''}
-                  >
-                    Mexican Wrestler Two
-                  </Link>
-                </li>
-                <li>
-                  <Link 
-                    to="/portraits/mexican-wrestler-three" 
-                    className={location.pathname === '/portraits/mexican-wrestler-three' ? 'active' : ''}
-                  >
-                    Mexican Wrestler Three
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <>
-                {baseSidebar.map((cat, index) => (
-                  <li key={cat}>
-                    <a 
-                      href="#" 
-                      onClick={(e) => e.preventDefault()}
-                      className={index === 0 ? 'active' : ''}
-                    >
-                      {cat}
-                    </a>
-                  </li>
-                ))}
-              </>
-            )}
-          </ul>
+  {showSidebar && (
+    <div className="pt-7">
+      <ul className="cat-list">
+        {isWorkSection ? (
+          <>
+            <li>
+              <Link
+                to="/work/adhd"
+                className={(location.pathname === '/work/adhd' || isRootWork) ? 'active' : ''}
+              >
+                ADHD
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/work/punk-plates"
+                className={location.pathname === '/work/punk-plates' ? 'active' : ''}
+              >
+                PUNK PLATES
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/work/but-i-love-you"
+                className={location.pathname === '/work/but-i-love-you' ? 'active' : ''}
+              >
+                BUT I LOVE YOU
+              </Link>
+            </li>
+          </>
+        ) : isPortraitSection ? (
+          <>
+            <li>
+              <Link
+                to="/portraits/mexican-wrestler-one"
+                className={(location.pathname === '/portraits/mexican-wrestler-one' || isRootPortraits) ? 'active' : ''}
+              >
+                Mexican Wrestler One
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/portraits/mexican-wrestler-two"
+                className={location.pathname === '/portraits/mexican-wrestler-two' ? 'active' : ''}
+              >
+                Mexican Wrestler Two
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/portraits/mexican-wrestler-three"
+                className={location.pathname === '/portraits/mexican-wrestler-three' ? 'active' : ''}
+              >
+                Mexican Wrestler Three
+              </Link>
+            </li>
+          </>
+        ) : (
+          <>
+            {baseSidebar.map((cat, index) => (
+              <li key={cat}>
+                <a
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                  className={index === 0 ? 'active' : ''}
+                >
+                  {cat}
+                </a>
+              </li>
+            ))}
+          </>
         )}
-      </div>
-
+      </ul>
+    </div>
+  )}
+</div>
       <div id="cat_right" className="flex-1">
         {artworks.length > 0 ? (
           <div id="ss_thumbs">

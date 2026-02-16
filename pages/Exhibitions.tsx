@@ -51,32 +51,34 @@ const Exhibitions: React.FC = () => {
   return (
     <div id="cat_main">
       <div id="cat_left">
-        <ul className="cat-list">
-          <li>
-            <Link 
-              to="/exhibitions/common-ground" 
-              className={isCommonGround ? 'active' : ''}
-            >
-              COMMON GROUND
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/exhibitions/ordered-chaos" 
-              className={isOrderedChaos ? 'active' : ''}
-            >
-              ORDERED CHAOS
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/exhibitions/transformation" 
-              className={isTransformation ? 'active' : ''}
-            >
-              TRANSFORMATION
-            </Link>
-          </li>
-        </ul>
+        <div className="pt-7">
+          <ul className="cat-list">
+            <li>
+              <Link 
+                to="/exhibitions/common-ground" 
+                className={isCommonGround ? 'active' : ''}
+              >
+                COMMON GROUND
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/exhibitions/ordered-chaos" 
+                className={isOrderedChaos ? 'active' : ''}
+              >
+                ORDERED CHAOS
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/exhibitions/transformation" 
+                className={isTransformation ? 'active' : ''}
+              >
+                TRANSFORMATION
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div id="cat_right" className="flex-1">

@@ -47,48 +47,50 @@ const Architecture: React.FC = () => {
   return (
     <div id="cat_main">
       <div id="cat_left">
-        <ul className="cat-list">
-          <li>
-            <Link 
-              to="/architecture/duneland" 
-              className={(location.pathname === '/architecture/duneland' || isRootArchitecture) ? 'active' : ''}
-            >
-              DUNELAND
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/architecture/larkrise" 
-              className={location.pathname === '/architecture/larkrise' ? 'active' : ''}
-            >
-              LARKRISE
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/architecture/tide-view" 
-              className={location.pathname === '/architecture/tide-view' ? 'active' : ''}
-            >
-              TIDE VIEW
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/architecture/chandlers-reach" 
-              className={location.pathname === '/architecture/chandlers-reach' ? 'active' : ''}
-            >
-              CHANDLERS REACH
-            </Link>
-          </li>
-          <li>
-            <Link 
-              to="/architecture/starvecrow" 
-              className={location.pathname === '/architecture/starvecrow' ? 'active' : ''}
-            >
-              STARVECROW
-            </Link>
-          </li>
-        </ul>
+        <div className="pt-7">
+          <ul className="cat-list">
+            <li>
+              <Link 
+                to="/architecture/duneland" 
+                className={(location.pathname === '/architecture/duneland' || isRootArchitecture) ? 'active' : ''}
+              >
+                DUNELAND
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/architecture/larkrise" 
+                className={location.pathname === '/architecture/larkrise' ? 'active' : ''}
+              >
+                LARKRISE
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/architecture/tide-view" 
+                className={location.pathname === '/architecture/tide-view' ? 'active' : ''}
+              >
+                TIDE VIEW
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/architecture/chandlers-reach" 
+                className={location.pathname === '/architecture/chandlers-reach' ? 'active' : ''}
+              >
+                CHANDLERS REACH
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/architecture/starvecrow" 
+                className={location.pathname === '/architecture/starvecrow' ? 'active' : ''}
+              >
+                STARVECROW
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div id="cat_right" className="flex-1">
