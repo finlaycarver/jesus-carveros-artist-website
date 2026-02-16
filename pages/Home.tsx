@@ -3,7 +3,7 @@ import { NavigationLinks } from '../App';
 
 const Home: React.FC = () => {
   return (
-    <div className="w-full h-[calc(100vh-60px)] flex flex-col items-center justify-between overflow-hidden">
+    <div className="w-full h-[calc(100vh-60px)] flex flex-col items-center justify-between overflow-hidden pb-12">
       {/* 
         Hero Image Container 
         - flex-1: takes up all remaining space
