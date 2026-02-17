@@ -16,36 +16,40 @@ interface GalleryItemProps {
 const GalleryItem: React.FC<GalleryItemProps> = ({ art, index, onExpand }) => {
   const [hasError, setHasError] = useState(false);
 
-  const handleExpand = () => {
-    if (!hasError) onExpand(index);
-  };
-
   return (
     <div className="thumb-obj w-full max-w-[220px]">
       <button
         type="button"
-        className="thumb-frame block w-full text-left"
-        onClick={handleExpand}
+        className="thumb-frame w-full"
+        onClick={() => !hasError && onExpand(index)}
         disabled={hasError}
         aria-label={art.title ? `Open ${art.title}` : "Open artwork"}
       >
         {hasError ? (
-          <div className="thumb-fallback">
-            IMAGE UNAVAILABLE
-          </div>
+          <div className="thumb-fallback">IMAGE UNAVAILABLE</div>
         ) : (
-          <img
-            src={art.imageUrl}
-            alt={art.title || "Artwork"}
-            className="thumb-img w-full h-auto"
-            loading="lazy"
-            decoding="async"
-            fetchpriority="low"
-            width={220}
-            height={275}
-            style={{ aspectRatio: "4 / 5" }}
-            onError={() => setHasError(true)}
-          />
+          <div
+            style={{
+              width: "100%",
+              aspectRatio: "4 / 5",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              src={art.imageUrl}
+              alt={art.title || "Artwork"}
+              loading="lazy"
+              decoding="async"
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover", // ✅ fills grid square
+                objectPosition: "center",
+                display: "block",
+              }}
+              onError={() => setHasError(true)}
+            />
+          </div>
         )}
       </button>
     </div>
@@ -53,3 +57,4 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ art, index, onExpand }) => {
 };
 
 export default GalleryItem;
+

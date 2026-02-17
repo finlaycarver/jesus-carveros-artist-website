@@ -25,7 +25,7 @@ export const SIDEBAR_MAP: Record<string, string[]> = {
 };
 
 export const MOCK_RECORDINGS = [
-  { id: 'rec-01', title: 'Recording 01', soundcloudUrl: 'https://soundcloud.com/artistname/track-01' },
+  { id: 'rec-01', title: 'Recording 01', soundcloudUrl: 'https://soundcloud.com/jesus-carveros/doesanyoneknow?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=1337eee751c443b1997093dd40016319' },
   { id: 'rec-02', title: 'Recording 02', soundcloudUrl: 'https://soundcloud.com/artistname/track-02' },
   { id: 'rec-03', title: 'Recording 03', soundcloudUrl: 'https://soundcloud.com/artistname/track-03' },
   { id: 'rec-04', title: 'Recording 04', soundcloudUrl: 'https://soundcloud.com/artistname/track-04' },
