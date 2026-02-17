@@ -11,7 +11,7 @@ const Home: React.FC = () => {
       */}
       <div className="w-full flex-1 flex items-center justify-center px-6 md:px-20 pt-2 overflow-hidden">
         <img 
-          src="https://i.ibb.co/VpmjZ57j/1d3fb49a-02b5-4bc8-8046-85671f2a4a21.jpg" 
+          src="https://q5uere11mbgam1g1.public.blob.vercel-storage.com/home-page/1d3fb49a-02b5-4bc8-8046-85671f2a4a21%20%281%29.jpeg" 
           alt="Hero Artwork" 
           className="max-w-full max-h-full object-contain block"
         />
