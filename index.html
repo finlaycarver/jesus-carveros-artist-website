@@ -103,12 +103,22 @@
 }
 
 @media (max-width: 768px) {
+  .nav-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
   .nav-row {
+    display: contents;
+  }
+  .nav-container {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     gap: 14px 16px;
-    max-width: 360px;
+    justify-content: center;
   }
   .nav-link {
     font-size: 10px;
+    white-space: nowrap;
   }
 }
 
