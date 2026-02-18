@@ -102,6 +102,10 @@
         max-width: 1080px;
       }
 
+      .nav-mobile {
+        display: none;
+      }
+
       .nav-vertical .nav-row {
         flex-direction: column;
         gap: 12px;
@@ -240,6 +244,21 @@
         #cat_right {
           padding-top: 20px !important;
           margin-left: 0;
+        }
+        .nav-desktop { display: none; }
+        .nav-mobile {
+          display: flex !important;
+          flex-wrap: wrap;
+          gap: 12px 14px;
+          justify-content: center;
+          max-width: 340px;
+          margin: 0 auto;
+          padding: 0;
+          list-style: none;
+        }
+        .nav-link {
+          font-size: 9px;
+          letter-spacing: 0.08em;
         }
       }
 
