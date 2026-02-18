@@ -9,6 +9,7 @@ import Exhibitions from './pages/Exhibitions';
 import Writings from './pages/Writings';
 import Architecture from './pages/Architecture';
 import Recordings from './pages/Recordings';
+import Films from "./pages/Films";
 
 interface NavigationLinksProps {
   vertical?: boolean;
@@ -104,9 +105,12 @@ const App: React.FC = () => {
             
             {/* Work Routes */}
             <Route path="/work" element={<Gallery type="work" />} />
-            <Route path="/work/adhd" element={<Gallery type="adhd" isSubCategory />} />
-            <Route path="/work/punk-plates" element={<Gallery type="punk-plates" isSubCategory />} />
             <Route path="/work/but-i-love-you" element={<Gallery type="but-i-love-you" isSubCategory />} />
+            <Route path="/work/adhd" element={<Gallery type="adhd" isSubCategory />} />
+            <Route path="/work/be-present" element={<Gallery type="be-present" isSubCategory />} />
+            <Route path="/work/me" element={<Gallery type="me" isSubCategory />} />
+            <Route path="/work/punk-plates" element={<Gallery type="punk-plates" isSubCategory />} />
+            <Route path="/work/trip" element={<Gallery type="trip" isSubCategory />} />
 
             {/* Portraits Routes */}
             <Route path="/portraits" element={<Gallery type="portraits" />} />
@@ -126,6 +130,7 @@ const App: React.FC = () => {
             <Route path="/new-work" element={<Gallery type="new-work" />} />
             <Route path="/writings" element={<Writings />} />
             <Route path="/recordings" element={<Recordings />} />
+            <Route path="/films" element={<Films />} />
             <Route path="/biography" element={<Bio />} />
           </Routes>
         </main>

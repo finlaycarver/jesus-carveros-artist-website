@@ -64,10 +64,34 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
           <>
             <li>
               <Link
+                to="/work/but-i-love-you"
+                className={location.pathname === '/work/but-i-love-you' ? 'active' : ''}
+              >
+                BUT I LOVE YOU
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/work/adhd"
                 className={(location.pathname === '/work/adhd' || isRootWork) ? 'active' : ''}
               >
                 ADHD
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/work/be-present"
+                className={location.pathname === '/work/be-present' ? 'active' : ''}
+              >
+                BE PRESENT
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/work/me"
+                className={location.pathname === '/work/me' ? 'active' : ''}
+              >
+                ME
               </Link>
             </li>
             <li>
@@ -80,10 +104,10 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
             </li>
             <li>
               <Link
-                to="/work/but-i-love-you"
-                className={location.pathname === '/work/but-i-love-you' ? 'active' : ''}
+                to="/work/trip"
+                className={location.pathname === '/work/trip' ? 'active' : ''}
               >
-                BUT I LOVE YOU
+                TRIP
               </Link>
             </li>
           </>
