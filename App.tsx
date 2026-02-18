@@ -60,10 +60,24 @@ export const NavigationLinks: React.FC<NavigationLinksProps> = ({ vertical = fal
   );
 
   return (
-    <div className="nav-container gap-y-3">
-      {renderRow(row1)}
-      {renderRow(row2)}
-    </div>
+    <React.Fragment>
+      <div className="nav-container gap-y-3 nav-desktop">
+        {renderRow(row1)}
+        {renderRow(row2)}
+      </div>
+      <ul className="nav-row nav-mobile justify-center">
+        {NAVIGATION.map(item => (
+          <li key={item.id}>
+            <Link
+              to={item.path}
+              className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
+            >
+              {item.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </React.Fragment>
   );
 };
 
