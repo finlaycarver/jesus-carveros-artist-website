@@ -1,16 +1,15 @@
 import { NavItem } from './types';
 
 export const NAVIGATION: NavItem[] = [
-  { id: 'nav5', label: 'Work', path: '/work', row: 1 },
+  { id: 'nav-films', label: 'Films', path: '/films', row: 1 },
   { id: 'nav4', label: 'Exhibitions', path: '/exhibitions', row: 1 },
   { id: 'nav2', label: 'Portraits', path: '/portraits', row: 1 },
-  { id: 'nav-arch', label: 'Architecture', path: '/architecture', row: 1 },
+  { id: 'nav9', label: 'Writings', path: '/writings', row: 1 },
+  { id: 'nav5', label: 'Work', path: '/work', row: 2 },
   { id: 'nav1', label: 'Photographs', path: '/photographs', row: 2 },
-  { id: 'nav7', label: 'Personal Collections', path: '/collections', row: 2 },
-  { id: 'nav-films', label: 'Films', path: '/films', row: 2 }, //
-  { id: 'nav9', label: 'Writings', path: '/writings', row: 2 },
+  { id: 'nav-arch', label: 'Architecture', path: '/architecture', row: 2 },
   { id: 'nav-recordings', label: 'Recordings', path: '/recordings', row: 2 },
-  { id: 'nav10', label: 'About', path: '/biography', row: 2 },
+  { id: 'nav10', label: 'Jesus', path: '/biography', row: 2 },
 ];
 
 export const SIDEBAR_MAP: Record<string, string[]> = {
@@ -20,7 +19,6 @@ export const SIDEBAR_MAP: Record<string, string[]> = {
   sculptures: ['Punk Plates'],
   work: ['BUT I LOVE YOU', 'ADHD', 'BE PRESENT', 'ME', 'PUNK PLATES', 'TRIP'],
   originals: ['ADHD', 'PUNK PLATES', 'BUT I LOVE YOU'],
-  collections: [],
   'new-work': ['Latest Work', 'In Progress', 'Experimental', 'Studio Views'],
   recordings: [],
 };
@@ -35,7 +33,15 @@ export const MOCK_RECORDINGS = [
 ];
 
 export const MOCK_ARTWORKS: Record<string, any[]> = {
-  photographs: [],
+  photographs: [
+    { id: 'ph-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_0607.jpg', title: 'Photograph', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
+    { id: 'ph-2', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_2048.jpg', title: 'Photograph', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
+    { id: 'ph-3', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_4462.jpg', title: 'Photograph', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
+    { id: 'ph-4', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_4495.jpg', title: 'Photograph', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
+    { id: 'ph-5', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_4499.jpg', title: 'Photograph', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
+    { id: 'ph-6', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_4507.jpg', title: 'Photograph', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
+    { id: 'ph-7', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_4512.jpg', title: 'Photograph', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
+  ],
   'adhd': [
     { id: 'adhd-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5161.jpg', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'adhd-2', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5164.jpg', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
@@ -199,38 +205,6 @@ export const MOCK_ARTWORKS: Record<string, any[]> = {
     { id: 'adhd-5', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5204.jpg', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'adhd-6', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5217.jpg', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'adhd-7', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5225.jpg', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
-  ],
-  collections: [
-    { id: 'pc-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_0607.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-2', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_2048.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-3', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_4462.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-4', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_4495.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-5', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_4499.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-6', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_4507.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-7', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_4512.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-8', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5482.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-9', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_6546.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-10', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5483.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-11', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5484.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-12', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5485.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-13', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5486.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-14', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5487.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-15', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5488.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-16', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5489.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-17', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5490.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-18', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5491.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-19', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5492.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-20', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5493.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-21', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5494.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-22', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5495.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-23', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5496.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-24', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5498.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-25', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5499.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-26', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5500.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-27', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5501.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-28', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5502.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-29', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5503.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
-    { id: 'pc-30', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/personal-collections/IMG_5504.jpg', title: 'Personal Collection', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
   ],
   'new-work': [],
   'be-present': [

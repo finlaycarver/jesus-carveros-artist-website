@@ -23,7 +23,7 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
 
   let effectiveType = type;
   if (isRootPortraits) effectiveType = 'mexican-wrestler-one';
-  if (isRootWork) effectiveType = 'adhd';
+  if (isRootWork) effectiveType = 'but-i-love-you';
   
   const artworks = MOCK_ARTWORKS[effectiveType] || [];
   const baseSidebar = SIDEBAR_MAP[type] || [];
@@ -65,7 +65,7 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
             <li>
               <Link
                 to="/work/but-i-love-you"
-                className={location.pathname === '/work/but-i-love-you' ? 'active' : ''}
+                className={(location.pathname === '/work/but-i-love-you' || isRootWork) ? 'active' : ''}
               >
                 BUT I LOVE YOU
               </Link>
@@ -73,7 +73,7 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
             <li>
               <Link
                 to="/work/adhd"
-                className={(location.pathname === '/work/adhd' || isRootWork) ? 'active' : ''}
+                className={location.pathname === '/work/adhd' ? 'active' : ''}
               >
                 ADHD
               </Link>

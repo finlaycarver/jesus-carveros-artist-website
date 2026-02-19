@@ -140,7 +140,6 @@ const App: React.FC = () => {
 
             <Route path="/originals" element={<Gallery type="work" />} />
             <Route path="/sculptures" element={<Gallery type="sculptures" />} />
-            <Route path="/collections" element={<Gallery type="collections" />} />
             <Route path="/new-work" element={<Gallery type="new-work" />} />
             <Route path="/writings" element={<Writings />} />
             <Route path="/recordings" element={<Recordings />} />

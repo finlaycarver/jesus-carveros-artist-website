@@ -10,8 +10,8 @@ interface WritingEntry {
 
 const MOCK_WRITINGS: WritingEntry[] = [
   {
-    id: 'w-67',
-    title: 'DIARY ENTRY #67',
+    id: 'w-3',
+    title: 'DIARY ENTRY #3',
     excerpt: "My name is Jesus Carveros. I’m 67. I take nothing for granted. My life is mindful. Spiritual. Creative. And meditative. My personal goal is to seize and enjoy every moment. To be grateful. And to have fun. Years ago I started wearing Mexican wrestlers masks. And overalls. And going to places dressed like this. No one knew who I was. Lots of people asked me questions.",
     fullText: `My name is Jesus Carveros.
 I’m 67.
@@ -198,8 +198,8 @@ It’s all we have.`,
     hasReadMore: true
   },
   {
-    id: 'w-99',
-    title: 'DIARY ENTRY #99',
+    id: 'w-36',
+    title: 'DIARY ENTRY #36',
     excerpt: "I went to Jempson’s in Peasmarsh today. I love it there. The first thing I did was go to the car wash. Not the drive thru. It never gets into the corners and cracks. I prefer the car wash they call the jet wash. Basically you do it yourself. You used to go to the shop and pay them and they’d give you a token. Then you’d put the token in the machine.",
     fullText: `I went to Jempson’s in Peasmarsh today.
 I love it there.
@@ -247,8 +247,8 @@ This was a satisfying moment.`,
     hasReadMore: true
   },
   {
-    id: 'w-3',
-    title: 'DIARY ENTRY #3',
+    id: 'w-67',
+    title: 'DIARY ENTRY #67',
     excerpt: "I’m not sure why but I keep seeing snails in Rye. Not people driving slowly. Actual snails. They look very similar to each other in appearance. That shiny browny colour on the outside. With a moist, slimy inner bit. Seeing the snails gave me an idea. I’d go on a snail crawl. This would give me something interesting to do. Well I did and I counted 267 snails today.",
     fullText: `I’m not sure why but I keep seeing snails in Rye.
 Not people driving slowly.
@@ -334,8 +334,8 @@ I wonder if snails in England talk the same language as snails in France?`,
     hasReadMore: true
   },
   {
-    id: 'w-101',
-    title: 'DIARY ENTRY #101',
+    id: 'w-82',
+    title: 'DIARY ENTRY #82',
     excerpt: "I’m giddy with excitement. I can’t hold it in. I’m pretty confident I’ve uncovered a secret sect. I’ll explain what happened. I was walking around a local supermarket doing my shopping. It’s such a fantastic place. And the staff are lovely. They are all so helpful and friendly. And knowledgeable. Whoever you ask. Whatever you ask. They know the answer.",
     fullText: `I’m giddy with excitement.
 I can’t hold it in.
@@ -492,8 +492,8 @@ Well it’s normal to me.`,
     hasReadMore: true
   },
   {
-    id: 'w-88',
-    title: 'DIARY ENTRY #88',
+    id: 'w-99',
+    title: 'DIARY ENTRY #99',
     excerpt: "I walked up the hill from Rye to Playden today. It was cold. But I kept going. I got puffed out and started to think about the people that built the pyramids in Egypt. And how they got those huge blocks of stone in place. No one seems to have an explanation. Or do they? Was it really possible? Or were aliens involved? The blocks were far too heavy and massive.",
     fullText: `I walked up the hill from Rye to Playden today.
 It was cold.
@@ -549,8 +549,8 @@ Can someone please explain ?`,
     hasReadMore: true
   },
   {
-    id: 'w-24',
-    title: 'DIARY ENTRY #24',
+    id: 'w-101',
+    title: 'DIARY ENTRY #101',
     excerpt: "Does anyone know how to get your foot out of a drainpipe? I spent the afternoon putting my foot into different drainpipes and it’s got stuck. Now I can’t get it out. I don’t want to cut the drainpipe. Or take my shoe off. It’s cold and I’m wearing thin socks. I should have worn thicker socks but I didn’t. It’s my left foot. My right foot is OK.",
     fullText: `Does anyone know how to get your foot out of a drainpipe?
 I spent the afternoon putting my foot into different drainpipes and it’s got stuck.

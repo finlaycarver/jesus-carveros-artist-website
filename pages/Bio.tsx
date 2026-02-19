@@ -8,12 +8,7 @@ const Bio: React.FC = () => {
       </div>
       <div id="cat_right" className="!pt-0 !mt-0 !flex !flex-row !justify-start !items-start !h-auto !min-h-0">
         <div className="max-w-[800px] text-left !pt-0 !mt-0 flex flex-col items-start self-start">
-          <h2 className="text-[32px] font-bold uppercase tracking-tight mb-8 mt-0 p-0 leading-none block">About</h2>
           <div className="space-y-6 text-[18px] leading-relaxed text-black/90 pt-0 mt-0">
-            <p>
-              Jesus Carveros is an invented persona.<br />
-              An alter ego that presents visually as a Mexican wrestler.
-            </p>
             <p>
               Jesus Carveros works across photography, film, installation and performance.<br />
               He uses headlines and text that reference a career in advertising, to critique interest in mass consumerism and media culture.
