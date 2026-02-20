@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationLinks } from '../App';
+import { MOCK_ARTWORKS } from '../constants';
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    const allUrls = Object.values(MOCK_ARTWORKS).flat().map((art: any) => art.imageUrl);
+    allUrls.forEach(url => {
+      const img = new Image();
+      img.src = url;
+    });
+  }, []);
+
   return (
     <div className="w-full h-[calc(100vh-60px)] flex flex-col items-center justify-between overflow-hidden pb-12">
       {/* 
