@@ -3,14 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 
 const EXHIBITION_VIDEOS: Record<string, string[]> = {
   'common-ground': [
-    'https://www.youtube.com/embed/PLACEHOLDER_1',
+    'https://www.youtube.com/embed/5HyT3YN89Fk',
   ],
   'ordered-chaos': [
-    'https://www.youtube.com/embed/PLACEHOLDER_2',
-    'https://www.youtube.com/embed/PLACEHOLDER_3',
+    'https://www.youtube.com/embed/RGquKeAEB_s',
   ],
   'transformation': [
-    'https://www.youtube.com/embed/PLACEHOLDER_4',
+    'https://www.youtube.com/embed/dvpWPBF4nIA',
   ],
 };
 
