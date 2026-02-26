@@ -1,7 +1,6 @@
-// Added React import to provide access to the React namespace for FC types.
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { NAVIGATION } from './constants';
+import { NAVIGATION, MOCK_ARTWORKS } from './constants';
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import Bio from './pages/Bio';
@@ -15,10 +14,6 @@ interface NavigationLinksProps {
   vertical?: boolean;
 }
 
-/**
- * Reusable Navigation Links component
- * Supports horizontal multi-row (Home) or vertical stack (All other pages)
- */
 export const NavigationLinks: React.FC<NavigationLinksProps> = ({ vertical = false }) => {
   const location = useLocation();
   
@@ -83,8 +78,6 @@ export const NavigationLinks: React.FC<NavigationLinksProps> = ({ vertical = fal
 
 const Header: React.FC = () => {
   const location = useLocation();
-
-  // Hide the global header (Logo + Nav) on the homepage as requested
   if (location.pathname === '/') return null;
 
   return (
@@ -100,6 +93,19 @@ const Header: React.FC = () => {
 };
 
 const App: React.FC = () => {
+  useEffect(() => {
+    Object.values(MOCK_ARTWORKS).forEach(category => {
+      if (Array.isArray(category)) {
+        category.forEach(item => {
+          if (item.imageUrl) {
+            const img = new Image();
+            img.src = item.imageUrl;
+          }
+        });
+      }
+    });
+  }, []);
+
   return (
     <HashRouter>
       <div id="wrap">
@@ -109,7 +115,6 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/photographs" element={<Gallery type="photographs" />} />
             
-            {/* Architecture Routes */}
             <Route path="/architecture" element={<Architecture />} />
             <Route path="/architecture/duneland" element={<Architecture />} />
             <Route path="/architecture/larkrise" element={<Architecture />} />
@@ -117,7 +122,6 @@ const App: React.FC = () => {
             <Route path="/architecture/chandlers-reach" element={<Architecture />} />
             <Route path="/architecture/starvecrow" element={<Architecture />} />
             
-            {/* Work Routes */}
             <Route path="/work" element={<Gallery type="work" />} />
             <Route path="/work/but-i-love-you" element={<Gallery type="but-i-love-you" isSubCategory />} />
             <Route path="/work/adhd" element={<Gallery type="adhd" isSubCategory />} />
@@ -126,13 +130,11 @@ const App: React.FC = () => {
             <Route path="/work/punk-plates" element={<Gallery type="punk-plates" isSubCategory />} />
             <Route path="/work/trip" element={<Gallery type="trip" isSubCategory />} />
 
-            {/* Portraits Routes */}
             <Route path="/portraits" element={<Gallery type="portraits" />} />
             <Route path="/portraits/mexican-wrestler-one" element={<Gallery type="mexican-wrestler-one" isSubCategory />} />
             <Route path="/portraits/mexican-wrestler-two" element={<Gallery type="mexican-wrestler-two" isSubCategory />} />
             <Route path="/portraits/mexican-wrestler-three" element={<Gallery type="mexican-wrestler-three" isSubCategory />} />
             
-            {/* Exhibitions Routes */}
             <Route path="/exhibitions" element={<Exhibitions />} />
             <Route path="/exhibitions/common-ground" element={<Exhibitions />} />
             <Route path="/exhibitions/ordered-chaos" element={<Exhibitions />} />
