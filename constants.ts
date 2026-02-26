@@ -41,6 +41,7 @@ export const MOCK_ARTWORKS: Record<string, any[]> = {
     { id: 'photo-5', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_4499.webp', title: 'Photographs', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
     { id: 'photo-6', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_4507.webp', title: 'Photographs', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
     { id: 'photo-7', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_4512.webp', title: 'Photographs', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
+    { id: 'photo-8', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/WhatsApp%20Image%202026-02-25%20at%2010.43.15%E2%80%AFam.webp', title: 'Photographs', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
   ],
   'adhd': [
     { id: 'adhd-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5204.webp', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
@@ -76,6 +77,8 @@ export const MOCK_ARTWORKS: Record<string, any[]> = {
     { id: 'bily-10', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/but-i-love-you/Triptich%2010%20v2.jpg', title: 'But I Love You', year: '2024', medium: 'Triptych', dimensions: '30 x 40 in' },
     { id: 'bily-11', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/but-i-love-you/Triptich%2011%20v2.jpg', title: 'But I Love You', year: '2024', medium: 'Triptych', dimensions: '30 x 40 in' },
     { id: 'bily-12', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/but-i-love-you/Triptich%2012%20v3.jpg', title: 'But I Love You', year: '2024', medium: 'Triptych', dimensions: '30 x 40 in' },
+    { id: 'bily-13', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/but-i-love-you/Gallery%20In-Situ%20Mockup%202.webp', title: 'But I Love You', year: '2024', medium: 'Triptych', dimensions: '30 x 40 in' },
+    { id: 'bily-14', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/but-i-love-you/Gallery%20in-situ%20Mockup%203.webp', title: 'But I Love You', year: '2024', medium: 'Triptych', dimensions: '30 x 40 in' },
   ],
   'ordered-chaos': [
     { id: 'oc-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/ordered-chaos/IMG_5196.jpg', title: 'Untitled (Photo)', year: '2024', medium: 'C-Print', dimensions: '20 x 24 in' },

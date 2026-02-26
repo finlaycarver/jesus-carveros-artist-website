@@ -31,7 +31,7 @@ const Home: React.FC = () => {
         - shrink-0: ensures it doesn't get compressed
         - py-10: standard padding to clear the bottom of the viewport
       */}
-      <div className="w-full shrink-0 py-10 home-nav">
+      <div className="w-full shrink-0 py-10">
         <NavigationLinks />
       </div>
     </div>
