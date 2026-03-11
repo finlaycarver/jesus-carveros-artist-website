@@ -1,16 +1,93 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const EXHIBITION_VIDEOS: Record<string, string[]> = {
-  'common-ground': [
-    'https://player.vimeo.com/video/1172572822?title=0&byline=0&portrait=0&badge=0',
-  ],
-  'ordered-chaos': [
-    'https://player.vimeo.com/video/1172590149?title=0&byline=0&portrait=0&badge=0',,
-  ],
-  'transformation': [
-    'https://player.vimeo.com/video/1172584678?title=0&byline=0&portrait=0&badge=0',
-  ],
+  'common-ground': ['5HyT3YN89Fk'],
+  'ordered-chaos': ['RGquKeAEB_s'],
+  'transformation': ['dvpWPBF4nIA'],
+};
+
+const VideoEmbed: React.FC<{
+  videoId: string;
+  isVertical: boolean;
+  title: string;
+}> = ({ videoId, isVertical, title }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <div
+      style={{
+        position: 'relative',
+        width: '100%',
+        height: '100%',
+        cursor: 'pointer',
+        overflow: 'hidden',
+        backgroundColor: '#000',
+      }}
+      onClick={() => setIsPlaying(true)}
+    >
+      {isPlaying ? (
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
+          style={{
+            width: '100%',
+            height: '100%',
+            border: 'none',
+            display: 'block',
+          }}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          title={title}
+        />
+      ) : (
+        <>
+          <img
+            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+            alt={title}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'rgba(0, 0, 0, 0.12)',
+            }}
+          >
+            <div
+              style={{
+                width: '74px',
+                height: '74px',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
+              <div
+                style={{
+                  width: 0,
+                  height: 0,
+                  borderTop: '12px solid transparent',
+                  borderBottom: '12px solid transparent',
+                  borderLeft: '18px solid black',
+                  marginLeft: '4px',
+                }}
+              />
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
 };
 
 const Exhibitions: React.FC = () => {
@@ -28,8 +105,7 @@ const Exhibitions: React.FC = () => {
 
   const videos = EXHIBITION_VIDEOS[activeKey] || [];
   const isVerticalLayout =
-  activeKey === 'common-ground' ||
-  activeKey === 'ordered-chaos';
+    activeKey === 'common-ground' || activeKey === 'ordered-chaos';
 
   return (
     <div id="cat_main">
@@ -76,7 +152,7 @@ const Exhibitions: React.FC = () => {
             transform: 'translateX(-75px)',
           }}
         >
-          {videos.map((url, idx) => (
+          {videos.map((videoId, idx) => (
             <div
               key={idx}
               style={
@@ -92,16 +168,9 @@ const Exhibitions: React.FC = () => {
                     }
               }
             >
-              <iframe
-                src={url}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                  display: 'block',
-                }}
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
+              <VideoEmbed
+                videoId={videoId}
+                isVertical={isVerticalLayout}
                 title={`${activeKey}-video-${idx + 1}`}
               />
             </div>
