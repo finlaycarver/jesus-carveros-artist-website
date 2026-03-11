@@ -6,12 +6,22 @@ const FILM_VIDEOS: string[] = [
   'ixAvgIqtxFY'
 ];
 
-const VideoEmbed: React.FC<{ videoId: string }> = ({ videoId }) => {
+const BLOB_VIDEO =
+  'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/Submission.mp4';
+
+const BLOB_VIDEO_POSTER =
+  'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/submission-thumb.jpg';
+
+const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: string }> = ({
+  videoId,
+  blobVideo,
+  poster
+}) => {
   const [play, setPlay] = useState(false);
 
   return (
     <div
-      onClick={() => setPlay(true)}
+      onClick={() => !play && setPlay(true)}
       style={{
         position: 'relative',
         width: '100%',
@@ -23,24 +33,49 @@ const VideoEmbed: React.FC<{ videoId: string }> = ({ videoId }) => {
       }}
     >
       {play ? (
-        <iframe
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
-          style={{
-            width: '100%',
-            height: '100%',
-            border: 'none'
-          }}
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-        />
-      ) : (
-        <>
-          <img
-            src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+        blobVideo ? (
+          <video
+            controls
+            autoPlay
+            preload="metadata"
+            playsInline
+            poster={poster}
             style={{
               width: '100%',
               height: '100%',
-              objectFit: 'cover'
+              display: 'block',
+              background: '#000'
+            }}
+          >
+            <source src={blobVideo} type="video/mp4" />
+          </video>
+        ) : (
+          <iframe
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
+            style={{
+              width: '100%',
+              height: '100%',
+              border: 'none'
+            }}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            title={videoId}
+          />
+        )
+      ) : (
+        <>
+          <img
+            src={
+              blobVideo && poster
+                ? poster
+                : `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+            }
+            alt=""
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block'
             }}
           />
 
@@ -98,6 +133,8 @@ const Films: React.FC = () => {
       {FILM_VIDEOS.map((id, idx) => (
         <VideoEmbed key={idx} videoId={id} />
       ))}
+
+      <VideoEmbed blobVideo={BLOB_VIDEO} poster={BLOB_VIDEO_POSTER} />
     </div>
   );
 };

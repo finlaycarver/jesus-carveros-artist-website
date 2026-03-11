@@ -26,10 +26,6 @@ export const SIDEBAR_MAP: Record<string, string[]> = {
 export const MOCK_RECORDINGS = [
   { id: 'rec-01', title: 'Recording 01', soundcloudUrl: 'https://soundcloud.com/jesus-carveros/drainpipe?si=07ba01d533cb45a7a6b454933d0b4c24&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing' },
   { id: 'rec-02', title: 'Recording 02', soundcloudUrl: 'https://soundcloud.com/jesus-carveros/car-wash?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=d80a4ab4020b4447bcebe7b9eaa51d4e' },
-  { id: 'rec-03', title: 'Recording 03', soundcloudUrl: 'https://soundcloud.com/artistname/track-03' },
-  { id: 'rec-04', title: 'Recording 04', soundcloudUrl: 'https://soundcloud.com/artistname/track-04' },
-  { id: 'rec-05', title: 'Recording 05', soundcloudUrl: 'https://soundcloud.com/artistname/track-05' },
-  { id: 'rec-06', title: 'Recording 06', soundcloudUrl: 'https://soundcloud.com/artistname/track-06' },
 ];
 
 export const MOCK_ARTWORKS: Record<string, any[]> = {
