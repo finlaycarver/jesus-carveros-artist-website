@@ -24,8 +24,21 @@ export const SIDEBAR_MAP: Record<string, string[]> = {
 };
 
 export const MOCK_RECORDINGS = [
-  { id: 'rec-01', title: 'Recording 01', soundcloudUrl: 'https://soundcloud.com/jesus-carveros/drainpipe?si=07ba01d533cb45a7a6b454933d0b4c24&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing' },
-  { id: 'rec-02', title: 'Recording 02', soundcloudUrl: 'https://soundcloud.com/jesus-carveros/car-wash?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing&si=d80a4ab4020b4447bcebe7b9eaa51d4e' },
+  {
+    id: 'rec-01',
+    title: 'Carwash',
+    audioUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/music/Carwash.mp3',
+  },
+  {
+    id: 'rec-02',
+    title: 'Drainpipe',
+    audioUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/music/Drainpipe.mp3',
+  },
+  {
+    id: 'rec-03',
+    title: 'Hill',
+    audioUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/music/Hill.mp3',
+  },
 ];
 
 export const MOCK_ARTWORKS: Record<string, any[]> = {
