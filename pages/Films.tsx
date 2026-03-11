@@ -12,10 +12,11 @@ const BLOB_VIDEO =
 const BLOB_VIDEO_POSTER =
   'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/submission-thumb.jpg';
 
-const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: string }> = ({
+const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: string; isMobile: boolean }> = ({
   videoId,
   blobVideo,
-  poster
+  poster,
+  isMobile
 }) => {
   const [play, setPlay] = useState(false);
 
@@ -25,7 +26,7 @@ const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: stri
       style={{
         position: 'relative',
         width: '100%',
-        maxWidth: '800px',
+        maxWidth: isMobile ? '92vw' : '800px',
         aspectRatio: '16 / 9',
         cursor: 'pointer',
         overflow: 'hidden',
@@ -55,7 +56,8 @@ const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: stri
             style={{
               width: '100%',
               height: '100%',
-              border: 'none'
+              border: 'none',
+              display: 'block'
             }}
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
@@ -119,6 +121,8 @@ const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: stri
 };
 
 const Films: React.FC = () => {
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <div
       style={{
@@ -127,14 +131,22 @@ const Films: React.FC = () => {
         alignItems: 'center',
         gap: '60px',
         paddingTop: '40px',
-        transform: 'translateX(133px)'
+        width: '100%',
+        boxSizing: 'border-box',
+        paddingLeft: isMobile ? '16px' : '0',
+        paddingRight: isMobile ? '16px' : '0',
+        transform: isMobile ? 'none' : 'translateX(133px)',
       }}
     >
       {FILM_VIDEOS.map((id, idx) => (
-        <VideoEmbed key={idx} videoId={id} />
+        <VideoEmbed key={idx} videoId={id} isMobile={isMobile} />
       ))}
 
-      <VideoEmbed blobVideo={BLOB_VIDEO} poster={BLOB_VIDEO_POSTER} />
+      <VideoEmbed
+        blobVideo={BLOB_VIDEO}
+        poster={BLOB_VIDEO_POSTER}
+        isMobile={isMobile}
+      />
     </div>
   );
 };
