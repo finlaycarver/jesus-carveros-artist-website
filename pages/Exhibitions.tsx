@@ -92,6 +92,7 @@ const VideoEmbed: React.FC<{
 
 const Exhibitions: React.FC = () => {
   const location = useLocation();
+  const isMobile = window.innerWidth <= 768;
 
   const isRootExhibitions = location.pathname === '/exhibitions';
   const isOrderedChaos = location.pathname === '/exhibitions/ordered-chaos';
@@ -149,7 +150,10 @@ const Exhibitions: React.FC = () => {
             gap: '60px',
             paddingTop: '20px',
             width: '100%',
-            transform: 'translateX(-75px)',
+            boxSizing: 'border-box',
+            paddingLeft: isMobile ? '16px' : '0',
+            paddingRight: isMobile ? '16px' : '0',
+            transform: isMobile ? 'none' : 'translateX(-75px)',
           }}
         >
           {videos.map((videoId, idx) => (
@@ -157,15 +161,28 @@ const Exhibitions: React.FC = () => {
               key={idx}
               style={
                 isVerticalLayout
-                  ? {
-                      height: '85vh',
-                      width: 'min(calc(85vh * 9 / 16), 100%)',
-                    }
-                  : {
-                      width: '100%',
-                      maxWidth: '800px',
-                      aspectRatio: '16 / 9',
-                    }
+                  ? isMobile
+                    ? {
+                        width: '92vw',
+                        maxWidth: '92vw',
+                        aspectRatio: '9 / 16',
+                        height: 'auto',
+                      }
+                    : {
+                        height: '85vh',
+                        width: 'min(calc(85vh * 9 / 16), 100%)',
+                      }
+                  : isMobile
+                    ? {
+                        width: '92vw',
+                        maxWidth: '92vw',
+                        aspectRatio: '16 / 9',
+                      }
+                    : {
+                        width: '100%',
+                        maxWidth: '800px',
+                        aspectRatio: '16 / 9',
+                      }
               }
             >
               <VideoEmbed
