@@ -39,6 +39,16 @@ export const MOCK_RECORDINGS = [
     title: 'Hill',
     audioUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/music/Hill.mp3',
   },
+  {
+    id: 'rec-04',
+    title: '67',
+    audioUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/music/67.mp3',
+  },
+  {
+    id: 'rec-05',
+    title: 'Snails',
+    audioUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/music/Snails.mp3',
+  },
 ];
 
 export const MOCK_ARTWORKS: Record<string, any[]> = {
