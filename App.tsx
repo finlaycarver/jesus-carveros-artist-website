@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { HashRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
-import { NAVIGATION, MOCK_ARTWORKS } from './constants';
+import { NavigationLinks } from './components/NavigationLinks';
+import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Gallery from './pages/Gallery';
 import Bio from './pages/Bio';
@@ -10,70 +11,12 @@ import Architecture from './pages/Architecture';
 import Recordings from './pages/Recordings';
 import Films from "./pages/Films";
 
-interface NavigationLinksProps {
-  vertical?: boolean;
-}
-
-export const NavigationLinks: React.FC<NavigationLinksProps> = ({ vertical = false }) => {
+const ScrollToTop: React.FC = () => {
   const location = useLocation();
-  
-  if (vertical) {
-    return (
-      <div className="nav-container nav-vertical">
-        <ul className="nav-row">
-          {NAVIGATION.map(item => (
-            <li key={item.id}>
-              <Link
-                to={item.path}
-                className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
-  const row1 = NAVIGATION.filter(item => item.row === 1);
-  const row2 = NAVIGATION.filter(item => item.row === 2);
-
-  const renderRow = (items: typeof NAVIGATION) => (
-    <ul className="nav-row justify-center">
-      {items.map(item => (
-        <li key={item.id}>
-          <Link
-            to={item.path}
-            className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
-          >
-            {item.label}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  );
-
-  return (
-    <React.Fragment>
-      <div className="nav-container gap-y-3 nav-desktop">
-        {renderRow(row1)}
-        {renderRow(row2)}
-      </div>
-      <ul className="nav-row nav-mobile justify-center">
-        {NAVIGATION.map(item => (
-          <li key={item.id}>
-            <Link
-              to={item.path}
-              className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
-            >
-              {item.label}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </React.Fragment>
-  );
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+  return null;
 };
 
 const Header: React.FC = () => {
@@ -93,22 +36,10 @@ const Header: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  useEffect(() => {
-    Object.values(MOCK_ARTWORKS).forEach(category => {
-      if (Array.isArray(category)) {
-        category.forEach(item => {
-          if (item.imageUrl) {
-            const img = new Image();
-            img.src = item.imageUrl;
-          }
-        });
-      }
-    });
-  }, []);
-
   return (
     <HashRouter>
       <div id="wrap">
+        <ScrollToTop />
         <Header />
         <main id="content">
           <Routes>
@@ -147,6 +78,9 @@ const App: React.FC = () => {
             <Route path="/recordings" element={<Recordings />} />
             <Route path="/films" element={<Films />} />
             <Route path="/biography" element={<Bio />} />
+            <Route path="/biography/contact" element={<Contact />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<div style={{ padding: '40px' }}><h1 style={{ fontSize: '12px', marginBottom: '12px' }}>Page not found</h1><p style={{ fontSize: '12px' }}>The page you’re looking for does not exist.</p></div>} />
           </Routes>
         </main>
       </div>

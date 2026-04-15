@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const FILM_VIDEOS: string[] = [
   'pdyUuBfRrCw',
@@ -12,25 +12,29 @@ const BLOB_VIDEO =
 const BLOB_VIDEO_POSTER =
   'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/submission-thumb.jpg';
 
-const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: string; isMobile: boolean }> = ({
+const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: string }> = ({
   videoId,
   blobVideo,
-  poster,
-  isMobile
+  poster
 }) => {
   const [play, setPlay] = useState(false);
 
   return (
-    <div
+    <button
+      type="button"
+      aria-label="Play video"
       onClick={() => !play && setPlay(true)}
       style={{
         position: 'relative',
         width: '100%',
-        maxWidth: isMobile ? '92vw' : '800px',
+        maxWidth: '800px',
         aspectRatio: '16 / 9',
         cursor: 'pointer',
         overflow: 'hidden',
-        background: '#000'
+        background: '#000',
+        border: 'none',
+        padding: 0,
+        display: 'block'
       }}
     >
       {play ? (
@@ -116,37 +120,43 @@ const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: stri
           </div>
         </>
       )}
-    </div>
+    </button>
   );
 };
 
 const Films: React.FC = () => {
-  const isMobile = window.innerWidth <= 768;
+  useEffect(() => {
+    document.title = 'Films — Jesus Carveros';
+  }, []);
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '60px',
-        paddingTop: '40px',
-        width: '100%',
-        boxSizing: 'border-box',
-        paddingLeft: isMobile ? '16px' : '0',
-        paddingRight: isMobile ? '16px' : '0',
-        transform: isMobile ? 'none' : 'translateX(133px)',
-      }}
-    >
-      {FILM_VIDEOS.map((id, idx) => (
-        <VideoEmbed key={idx} videoId={id} isMobile={isMobile} />
-      ))}
+    <div id="cat_main">
+      <div id="cat_left"></div>
+      <div id="cat_right">
+        <h1 className="sr-only">Films</h1>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '60px',
+            paddingTop: '40px',
+            width: '100%',
+            boxSizing: 'border-box',
+            paddingLeft: '0',
+            paddingRight: '0',
+          }}
+        >
+          {FILM_VIDEOS.map((id, idx) => (
+            <VideoEmbed key={idx} videoId={id} />
+          ))}
 
-      <VideoEmbed
-        blobVideo={BLOB_VIDEO}
-        poster={BLOB_VIDEO_POSTER}
-        isMobile={isMobile}
-      />
+          <VideoEmbed
+            blobVideo={BLOB_VIDEO}
+            poster={BLOB_VIDEO_POSTER}
+          />
+        </div>
+      </div>
     </div>
   );
 };

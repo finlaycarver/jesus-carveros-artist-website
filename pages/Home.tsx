@@ -1,14 +1,9 @@
 import React, { useEffect } from 'react';
-import { NavigationLinks } from '../App';
-import { MOCK_ARTWORKS } from '../constants';
+import { NavigationLinks } from '../components/NavigationLinks';
 
 const Home: React.FC = () => {
   useEffect(() => {
-    const allUrls = Object.values(MOCK_ARTWORKS).flat().map((art: any) => art.imageUrl);
-    allUrls.forEach(url => {
-      const img = new Image();
-      img.src = url;
-    });
+    document.title = 'Jesus Carveros — Portfolio';
   }, []);
 
   return (
@@ -21,8 +16,12 @@ const Home: React.FC = () => {
       <div className="w-full flex-1 flex items-center justify-center px-6 md:px-20 pt-2 overflow-hidden">
         <img 
           src="https://q5uere11mbgam1g1.public.blob.vercel-storage.com/home-page/1d3fb49a-02b5-4bc8-8046-85671f2a4a21%20%281%29.jpeg" 
-          alt="Hero Artwork" 
+          alt="Featured artwork by Jesus Carveros" 
           className="max-w-full max-h-full object-contain block"
+          loading="eager"
+          fetchPriority="high"
+          decoding="sync"
+          sizes="(max-width: 768px) calc(100vw - 48px), (max-width: 1280px) calc(100vw - 160px), 900px"
         />
       </div>
 

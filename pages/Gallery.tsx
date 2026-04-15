@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MOCK_ARTWORKS, SIDEBAR_MAP } from '../constants';
+import { ARTWORKS, SIDEBAR_MAP } from '../constants';
 import GalleryItem from '../components/GalleryItem';
+import Lightbox from '../components/Lightbox';
 
 interface GalleryProps {
   type: string;
-  isSubCategory?: boolean;
 }
 
 const Gallery: React.FC<GalleryProps> = ({ type }) => {
@@ -25,8 +25,19 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
   if (isRootPortraits) effectiveType = 'mexican-wrestler-one';
   if (isRootWork) effectiveType = 'but-i-love-you';
   
-  const artworks = MOCK_ARTWORKS[effectiveType] || [];
+  const artworks = ARTWORKS[effectiveType] || [];
   const baseSidebar = SIDEBAR_MAP[type] || [];
+
+  const GALLERY_LABELS: Record<string, string> = {
+    work: 'Works',
+    photographs: 'Photographs',
+    portraits: 'Portraits',
+    sculptures: 'Sculptures',
+    'new-work': 'New Work',
+  };
+  useEffect(() => {
+    document.title = `${GALLERY_LABELS[type] ?? 'Works'} — Jesus Carveros`;
+  }, [type]);
 
   const nextImage = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -158,6 +169,7 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
   )}
 </div>
       <div id="cat_right" className="flex-1">
+        <h1 className="sr-only">Works</h1>
         {artworks.length > 0 ? (
           <div id="ss_thumbs">
             {artworks.map((art, idx) => (
@@ -172,24 +184,19 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
         ) : (
           <div className="flex flex-col items-start pt-4">
             <p className="text-[#bdbdbd] font-bold uppercase tracking-widest text-sm">
-              Gallery content coming soon.
+              Selected works will be added soon.
             </p>
           </div>
         )}
       </div>
 
       {selectedArt && (
-        <div className="modal-overlay" onClick={() => setSelectedIndex(null)}>
-          <button className="lb-nav-btn prev" onClick={prevImage}>&lsaquo;</button>
-          <button className="lb-nav-btn next" onClick={nextImage}>&rsaquo;</button>
-          
-          <div className="modal-content relative" onClick={(e) => e.stopPropagation()}>
-            <img src={selectedArt.imageUrl} alt="Expanded view" className="shadow-2xl" />
-            <div className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-gray-400 font-medium">
-              Arrows to navigate • ESC to close
-            </div>
-          </div>
-        </div>
+        <Lightbox
+          imageUrl={selectedArt.imageUrl}
+          onClose={() => setSelectedIndex(null)}
+          onPrev={prevImage}
+          onNext={nextImage}
+        />
       )}
     </div>
   );

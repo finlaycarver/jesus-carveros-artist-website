@@ -1,22 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Contact: React.FC = () => {
+  const location = useLocation();
+  useEffect(() => {
+    document.title = 'Contact — Jesus Carveros';
+  }, []);
+
   return (
-    <div className="max-w-[600px]">
-      <h2 className="knockout-font text-[32px] tracking-tight mb-8">Birdtalk</h2>
-      <div className="space-y-12">
-        <section>
-          <h3 className="knockout-font text-[16px] tracking-[0.15em] mb-4 text-[#bdbdbd]">Gagosian Gallery</h3>
-          <p className="text-[18px]">980 Madison Avenue<br />New York, NY 10075</p>
-        </section>
-        
-        <section>
-          <h3 className="knockout-font text-[16px] tracking-[0.15em] mb-4 text-[#bdbdbd]">News</h3>
-          <div className="p-8 bg-white/50 border border-gray-200">
-            <p className="text-[18px] italic mb-4 font-normal">"The jokes are what keep me going. If I stop laughing, I stop working."</p>
-            <p className="text-right knockout-font text-[12px] tracking-[0.1em] text-gray-500">— JC, 2024</p>
+    <div id="cat_main">
+      <div id="cat_left">
+        <div className="pt-7">
+          <ul className="cat-list">
+            <li>
+              <Link to="/biography" className={location.pathname === '/biography' ? 'active' : ''}>BIO</Link>
+            </li>
+            <li>
+              <Link to="/biography/contact" className={location.pathname === '/biography/contact' ? 'active' : ''}>CONTACT</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="cat_right" className="!pt-0 !mt-0 !flex !flex-row !justify-start !items-start !h-auto !min-h-0">
+        <div className="max-w-[800px] text-left !pt-0 !mt-0 flex flex-col items-start self-start">
+          <h1 className="text-[13px] font-semibold uppercase tracking-widest text-black mb-8">Contact</h1>
+          <div className="space-y-7 text-[15px] leading-[1.85] text-black/80">
+            <p>
+              For enquiries, commissions, collaborations, or exhibitions,<br />
+              please get in touch.
+            </p>
+            <p>
+              <a
+                href="mailto:contact@jesuscarveros.com"
+                className="text-black text-[15px] leading-[1.85] border-b border-black/40 hover:border-black hover:text-black transition-colors duration-150 no-underline"
+              >
+                contact@jesuscarveros.com
+              </a>
+            </p>
+            <p>Serious enquiries are welcome.</p>
           </div>
-        </section>
+        </div>
       </div>
     </div>
   );

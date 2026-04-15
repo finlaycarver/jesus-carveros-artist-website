@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Bio: React.FC = () => {
+  const location = useLocation();
+  useEffect(() => {
+    document.title = 'Biography — Jesus Carveros';
+  }, []);
+
   return (
     <div id="cat_main">
       <div id="cat_left">
-        {/* Empty cat_left to maintain layout system without sub-navigation */}
+        <div className="pt-7">
+          <ul className="cat-list">
+            <li>
+              <Link to="/biography" className={location.pathname === '/biography' ? 'active' : ''}>BIO</Link>
+            </li>
+            <li>
+              <Link to="/biography/contact" className={location.pathname === '/biography/contact' ? 'active' : ''}>CONTACT</Link>
+            </li>
+          </ul>
+        </div>
       </div>
       <div id="cat_right" className="!pt-0 !mt-0 !flex !flex-row !justify-start !items-start !h-auto !min-h-0">
         <div className="max-w-[800px] text-left !pt-0 !mt-0 flex flex-col items-start self-start">
-          <div className="space-y-6 text-[18px] leading-relaxed text-black/90 pt-0 mt-0">
+          <h1 className="text-[13px] font-semibold uppercase tracking-widest text-black mb-8">Biography</h1>
+          <div className="space-y-7 text-[15px] leading-[1.85] text-black/80 pt-0 mt-0">
             <p>
               Jesus Carveros works across photography, film, installation and performance.<br />
               He uses headlines and text that reference a career in advertising, to critique interest in mass consumerism and media culture.

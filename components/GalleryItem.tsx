@@ -15,6 +15,7 @@ interface GalleryItemProps {
 
 const GalleryItem: React.FC<GalleryItemProps> = ({ art, index, onExpand }) => {
   const [hasError, setHasError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div className="thumb-obj w-full max-w-[220px]">
@@ -28,28 +29,18 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ art, index, onExpand }) => {
         {hasError ? (
           <div className="thumb-fallback">IMAGE UNAVAILABLE</div>
         ) : (
-          <div
-            style={{
-              width: "100%",
-              aspectRatio: "4 / 5",
-              overflow: "hidden",
-            }}
-          >
-            <img
-              src={art.imageUrl}
-              alt={art.title || "Artwork"}
-              loading="lazy"
-              decoding="async"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover", // ✅ fills grid square
-                objectPosition: "center",
-                display: "block",
-              }}
-              onError={() => setHasError(true)}
-            />
-          </div>
+          <img
+            src={art.imageUrl}
+            alt={art.title ? `${art.title} by Jesus Carveros` : 'Artwork by Jesus Carveros'}
+            className={`thumb-img${isLoaded ? ' is-loaded' : ''}`}
+            loading="lazy"
+            decoding="async"
+            sizes="(max-width: 480px) calc(50vw - 24px), 220px"
+            width={220}
+            height={220}
+            onLoad={() => setIsLoaded(true)}
+            onError={() => setHasError(true)}
+          />
         )}
       </button>
     </div>

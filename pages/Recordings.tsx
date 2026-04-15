@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MOCK_RECORDINGS } from '../constants';
 
 const Recordings: React.FC = () => {
-  const isMobile = window.innerWidth <= 768;
+  useEffect(() => {
+    document.title = 'Recordings — Jesus Carveros';
+  }, []);
 
   return (
     <div id="cat_main">
+      <div id="cat_left"></div>
       <div id="cat_right" className="flex-1">
+        <h1 className="sr-only">Recordings</h1>
         <div
           style={{
             width: '100%',
             boxSizing: 'border-box',
-            paddingLeft: isMobile ? '16px' : '0',
-            paddingRight: isMobile ? '16px' : '0',
+            paddingLeft: '0',
+            paddingRight: '0',
             paddingTop: '20px',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: '40px',
-            transform: isMobile ? 'none' : 'translateX(-65px)',
           }}
         >
           {MOCK_RECORDINGS.map((recording) => (

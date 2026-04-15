@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const EXHIBITION_VIDEOS: Record<string, string[]> = {
@@ -15,7 +15,10 @@ const VideoEmbed: React.FC<{
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div
+    <button
+      type="button"
+      aria-label={`Play ${title}`}
+      onClick={() => setIsPlaying(true)}
       style={{
         position: 'relative',
         width: '100%',
@@ -23,8 +26,10 @@ const VideoEmbed: React.FC<{
         cursor: 'pointer',
         overflow: 'hidden',
         backgroundColor: '#000',
+        border: 'none',
+        padding: 0,
+        display: 'block'
       }}
-      onClick={() => setIsPlaying(true)}
     >
       {isPlaying ? (
         <iframe
@@ -86,14 +91,16 @@ const VideoEmbed: React.FC<{
           </div>
         </>
       )}
-    </div>
+    </button>
   );
 };
 
 const Exhibitions: React.FC = () => {
-  const location = useLocation();
-  const isMobile = window.innerWidth <= 768;
+  useEffect(() => {
+    document.title = 'Exhibitions — Jesus Carveros';
+  }, []);
 
+  const location = useLocation();
   const isRootExhibitions = location.pathname === '/exhibitions';
   const isOrderedChaos = location.pathname === '/exhibitions/ordered-chaos';
   const isTransformation = location.pathname === '/exhibitions/transformation';
@@ -142,6 +149,7 @@ const Exhibitions: React.FC = () => {
       </div>
 
       <div id="cat_right" className="flex-1">
+        <h1 className="sr-only">Exhibitions</h1>
         <div
           style={{
             display: 'flex',
@@ -151,9 +159,8 @@ const Exhibitions: React.FC = () => {
             paddingTop: '20px',
             width: '100%',
             boxSizing: 'border-box',
-            paddingLeft: isMobile ? '16px' : '0',
-            paddingRight: isMobile ? '16px' : '0',
-            transform: isMobile ? 'none' : 'translateX(-75px)',
+            paddingLeft: '0',
+            paddingRight: '0',
           }}
         >
           {videos.map((videoId, idx) => (
@@ -161,28 +168,15 @@ const Exhibitions: React.FC = () => {
               key={idx}
               style={
                 isVerticalLayout
-                  ? isMobile
-                    ? {
-                        width: '92vw',
-                        maxWidth: '92vw',
-                        aspectRatio: '9 / 16',
-                        height: 'auto',
-                      }
-                    : {
-                        height: '85vh',
-                        width: 'min(calc(85vh * 9 / 16), 100%)',
-                      }
-                  : isMobile
-                    ? {
-                        width: '92vw',
-                        maxWidth: '92vw',
-                        aspectRatio: '16 / 9',
-                      }
-                    : {
-                        width: '100%',
-                        maxWidth: '800px',
-                        aspectRatio: '16 / 9',
-                      }
+                  ? {
+                      height: '85vh',
+                      width: 'min(calc(85vh * 9 / 16), 100%)',
+                    }
+                  : {
+                      width: '100%',
+                      maxWidth: '800px',
+                      aspectRatio: '16 / 9',
+                    }
               }
             >
               <VideoEmbed

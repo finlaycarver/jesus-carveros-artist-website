@@ -580,6 +580,10 @@ const Writings: React.FC = () => {
   const [expandedEntry, setExpandedEntry] = useState<WritingEntry | null>(null);
 
   useEffect(() => {
+    document.title = 'Writings — Jesus Carveros';
+  }, []);
+
+  useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setExpandedEntry(null);
     };
@@ -594,6 +598,7 @@ const Writings: React.FC = () => {
       </div>
 
       <div id="cat_right">
+        <h1 className="sr-only">Writings</h1>
         <div id="writing_objects">
           {MOCK_WRITINGS.map((writing) => (
             <div key={writing.id} className="writing-card">
@@ -617,7 +622,7 @@ const Writings: React.FC = () => {
 
       {expandedEntry && (
         <div className="expanded-writing-overlay">
-          <div className="close-btn" onClick={() => setExpandedEntry(null)}>
+          <div className="close-btn" onClick={() => setExpandedEntry(null)} role="button" tabIndex={0} aria-label="Close writing" onKeyDown={(e) => e.key === 'Enter' && setExpandedEntry(null)}>
             Close (ESC)
           </div>
           <div className="expanded-writing-content">

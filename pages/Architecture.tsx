@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MOCK_ARTWORKS } from '../constants';
+import { ARTWORKS } from '../constants';
 import GalleryItem from '../components/GalleryItem';
+import Lightbox from '../components/Lightbox';
 
 const Architecture: React.FC = () => {
   const location = useLocation();
@@ -19,7 +20,11 @@ const Architecture: React.FC = () => {
   };
 
   const effectiveType = isRootArchitecture ? 'architecture-duneland' : (routeMap[location.pathname] || 'architecture-duneland');
-  const artworks = MOCK_ARTWORKS[effectiveType] || [];
+  const artworks = ARTWORKS[effectiveType] || [];
+
+  useEffect(() => {
+    document.title = 'Architecture — Jesus Carveros';
+  }, []);
 
   const nextImage = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
@@ -73,27 +78,12 @@ const Architecture: React.FC = () => {
                 TIDE VIEW
               </Link>
             </li>
-            <li>
-              <Link 
-                to="/architecture/chandlers-reach" 
-                className={location.pathname === '/architecture/chandlers-reach' ? 'active' : ''}
-              >
-                CHANDLERS REACH
-              </Link>
-            </li>
-            <li>
-              <Link 
-                to="/architecture/starvecrow" 
-                className={location.pathname === '/architecture/starvecrow' ? 'active' : ''}
-              >
-                STARVECROW
-              </Link>
-            </li>
           </ul>
         </div>
       </div>
 
       <div id="cat_right" className="flex-1">
+        <h1 className="sr-only">Architecture</h1>
         {artworks.length > 0 ? (
           <div id="ss_thumbs">
             {artworks.map((art, idx) => (
@@ -108,24 +98,19 @@ const Architecture: React.FC = () => {
         ) : (
           <div className="flex flex-col items-start pt-4">
             <p className="text-[#bdbdbd] font-bold uppercase tracking-widest text-sm">
-              Architecture project content coming soon.
+              This project will be added soon.
             </p>
           </div>
         )}
       </div>
 
       {selectedArt && (
-        <div className="modal-overlay" onClick={() => setSelectedIndex(null)}>
-          <button className="lb-nav-btn prev" onClick={prevImage}>&lsaquo;</button>
-          <button className="lb-nav-btn next" onClick={nextImage}>&rsaquo;</button>
-
-          <div className="modal-content relative" onClick={(e) => e.stopPropagation()}>
-            <img src={selectedArt.imageUrl} alt="Expanded view" className="shadow-2xl" />
-            <div className="mt-4 text-center text-[10px] uppercase tracking-[0.2em] text-gray-400 font-medium">
-              Arrows to navigate • ESC to close
-            </div>
-          </div>
-        </div>
+        <Lightbox
+          imageUrl={selectedArt.imageUrl}
+          onClose={() => setSelectedIndex(null)}
+          onPrev={prevImage}
+          onNext={nextImage}
+        />
       )}
     </div>
   );

@@ -56,7 +56,7 @@ export const MOCK_RECORDINGS = [
   },
 ];
 
-export const MOCK_ARTWORKS: Record<string, any[]> = {
+export const ARTWORKS: Record<string, any[]> = {
   photographs: [
   { id: 'photo-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_0607.webp', title: 'Photographs', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
   { id: 'photo-2', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/photographs/IMG_2048.webp', title: 'Photographs', year: '2024', medium: 'Photography', dimensions: '20 x 24 in' },
@@ -111,7 +111,7 @@ export const MOCK_ARTWORKS: Record<string, any[]> = {
     { id: 'adhd-11', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5212.webp', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'adhd-12', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5217.webp', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'adhd-13', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_5219.webp', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
-    { id: 'adhd-13', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_0315.webp', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
+    { id: 'adhd-14', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/adhd/IMG_0315.webp', title: 'ADHD', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
   ],
   'punk-plates': [
     { id: 'pp-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/punk-plates/IMG_6525.webp', title: 'Punk Plate', year: '2024', medium: 'Sculptural Plate', dimensions: '12 x 12 in' },
