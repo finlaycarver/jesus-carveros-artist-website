@@ -240,8 +240,8 @@ body {
     height: auto;
     padding-top: 0;
     border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .cat-list {
@@ -257,7 +257,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding-top: 20px !important;
+    padding-top: 0 !important;
     margin-left: 0;
   }
 
