@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 interface WritingEntry {
   id: string;
@@ -578,6 +578,8 @@ This time it hasn’t.`,
 
 const Writings: React.FC = () => {
   const [expandedEntry, setExpandedEntry] = useState<WritingEntry | null>(null);
+  const previousFocus = useRef<HTMLElement | null>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     document.title = 'Writings — Jesus Carveros';
@@ -590,6 +592,33 @@ const Writings: React.FC = () => {
     window.addEventListener('keydown', handleEsc);
     return () => window.removeEventListener('keydown', handleEsc);
   }, []);
+
+  useEffect(() => {
+    if (expandedEntry) {
+      previousFocus.current = document.activeElement as HTMLElement;
+      const closeBtn = overlayRef.current?.querySelector<HTMLElement>('.close-btn');
+      closeBtn?.focus();
+
+      const handleTab = (e: KeyboardEvent) => {
+        if (e.key !== 'Tab') return;
+        const focusable = overlayRef.current?.querySelectorAll<HTMLElement>(
+          '[tabindex="0"]:not([disabled])'
+        );
+        if (!focusable || focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      };
+      document.addEventListener('keydown', handleTab);
+      return () => document.removeEventListener('keydown', handleTab);
+    } else {
+      previousFocus.current?.focus();
+    }
+  }, [expandedEntry]);
 
   return (
     <div id="cat_main">
@@ -621,7 +650,7 @@ const Writings: React.FC = () => {
       </div>
 
       {expandedEntry && (
-        <div className="expanded-writing-overlay">
+        <div ref={overlayRef} className="expanded-writing-overlay">
           <div className="close-btn" onClick={() => setExpandedEntry(null)} role="button" tabIndex={0} aria-label="Close writing" onKeyDown={(e) => e.key === 'Enter' && setExpandedEntry(null)}>
             Close (ESC)
           </div>

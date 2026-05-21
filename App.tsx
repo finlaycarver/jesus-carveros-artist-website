@@ -39,6 +39,7 @@ const App: React.FC = () => {
   return (
     <HashRouter>
       <div id="wrap">
+        <a href="#content" className="skip-link">Skip to content</a>
         <ScrollToTop />
         <Header />
         <main id="content">
