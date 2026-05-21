@@ -1,6 +1,29 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { NAVIGATION } from '../constants';
+import { NAVIGATION, ARTWORKS } from '../constants';
+
+const PATH_TO_ARTWORK_KEYS: Record<string, string[]> = {
+  '/photographs': ['photographs'],
+  '/work': ['but-i-love-you', 'adhd', 'be-present', 'me', 'punk-plates', 'trip'],
+  '/portraits': ['mexican-wrestler-one', 'mexican-wrestler-two', 'mexican-wrestler-three'],
+  '/architecture': ['architecture-duneland', 'architecture-larkrise', 'architecture-tide-view'],
+  '/exhibitions': ['ordered-chaos'],
+};
+
+const preloaded = new Set<string>();
+
+function preloadGallery(path: string) {
+  const keys = PATH_TO_ARTWORK_KEYS[path];
+  if (!keys) return;
+  keys.forEach(key => {
+    (ARTWORKS[key] ?? []).forEach(art => {
+      if (preloaded.has(art.imageUrl)) return;
+      preloaded.add(art.imageUrl);
+      const img = new Image();
+      img.src = art.imageUrl;
+    });
+  });
+}
 
 interface NavigationLinksProps {
   vertical?: boolean;
@@ -18,6 +41,7 @@ export const NavigationLinks: React.FC<NavigationLinksProps> = ({ vertical = fal
               <Link
                 to={item.path}
                 className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
+                onMouseEnter={() => preloadGallery(item.path)}
               >
                 {item.label}
               </Link>
@@ -38,6 +62,7 @@ export const NavigationLinks: React.FC<NavigationLinksProps> = ({ vertical = fal
           <Link
             to={item.path}
             className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
+            onMouseEnter={() => preloadGallery(item.path)}
           >
             {item.label}
           </Link>
@@ -58,6 +83,7 @@ export const NavigationLinks: React.FC<NavigationLinksProps> = ({ vertical = fal
             <Link
               to={item.path}
               className={`nav-link ${location.pathname.startsWith(item.path) ? 'active' : ''}`}
+              onMouseEnter={() => preloadGallery(item.path)}
             >
               {item.label}
             </Link>
