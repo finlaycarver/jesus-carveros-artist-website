@@ -7,6 +7,10 @@ const EXHIBITION_VIDEOS: Record<string, string[]> = {
   'transformation': ['dvpWPBF4nIA'],
 };
 
+const EXHIBITION_DIRECT_VIDEOS: Record<string, string> = {
+  'subterranea': 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/IMG_5512.MOV',
+};
+
 const VideoEmbed: React.FC<{
   videoId: string;
   isVertical: boolean;
@@ -95,6 +99,87 @@ const VideoEmbed: React.FC<{
   );
 };
 
+const DirectVideoEmbed: React.FC<{ src: string; title: string }> = ({ src, title }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: '#000' }}>
+      {isPlaying ? (
+        <video
+          src={src}
+          controls
+          autoPlay
+          playsInline
+          aria-label={title}
+          style={{
+            width: '100%',
+            height: '100%',
+            display: 'block',
+            objectFit: 'contain',
+          }}
+        />
+      ) : (
+        <button
+          type="button"
+          aria-label={`Play ${title}`}
+          onClick={() => setIsPlaying(true)}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            cursor: 'pointer',
+            backgroundColor: '#000',
+            border: 'none',
+            padding: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            overflow: 'hidden',
+          }}
+        >
+          <img
+            src="/thumbnails/subterranea-thumb.png"
+            alt={title}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              display: 'block',
+            }}
+          />
+          <div
+            style={{
+              position: 'relative',
+              zIndex: 1,
+              width: '74px',
+              height: '74px',
+              borderRadius: '50%',
+              backgroundColor: 'rgba(255, 255, 255, 0.9)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <div
+              style={{
+                width: 0,
+                height: 0,
+                borderTop: '12px solid transparent',
+                borderBottom: '12px solid transparent',
+                borderLeft: '18px solid black',
+                marginLeft: '4px',
+              }}
+            />
+          </div>
+        </button>
+      )}
+    </div>
+  );
+};
+
 const Exhibitions: React.FC = () => {
   useEffect(() => {
     document.title = 'Exhibitions — Jesus Carveros';
@@ -104,16 +189,19 @@ const Exhibitions: React.FC = () => {
   const isRootExhibitions = location.pathname === '/exhibitions';
   const isOrderedChaos = location.pathname === '/exhibitions/ordered-chaos';
   const isTransformation = location.pathname === '/exhibitions/transformation';
+  const isSubterranea = location.pathname === '/exhibitions/subterranea';
   const isCommonGround =
     location.pathname === '/exhibitions/common-ground' || isRootExhibitions;
 
   let activeKey = 'common-ground';
   if (isOrderedChaos) activeKey = 'ordered-chaos';
   if (isTransformation) activeKey = 'transformation';
+  if (isSubterranea) activeKey = 'subterranea';
 
   const videos = EXHIBITION_VIDEOS[activeKey] || [];
+  const directVideo = EXHIBITION_DIRECT_VIDEOS[activeKey] || null;
   const isVerticalLayout =
-    activeKey === 'common-ground' || activeKey === 'ordered-chaos';
+    activeKey === 'common-ground' || activeKey === 'ordered-chaos' || activeKey === 'subterranea';
 
   return (
     <div id="cat_main">
@@ -144,6 +232,14 @@ const Exhibitions: React.FC = () => {
                 TRANSFORMATION
               </Link>
             </li>
+            <li>
+              <Link
+                to="/exhibitions/subterranea"
+                className={isSubterranea ? 'active' : ''}
+              >
+                SUBTERRANEA
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -163,29 +259,40 @@ const Exhibitions: React.FC = () => {
             paddingRight: '0',
           }}
         >
-          {videos.map((videoId, idx) => (
+          {directVideo ? (
             <div
-              key={idx}
-              style={
-                isVerticalLayout
-                  ? {
-                      height: '85vh',
-                      width: 'min(calc(85vh * 9 / 16), 100%)',
-                    }
-                  : {
-                      width: '100%',
-                      maxWidth: '800px',
-                      aspectRatio: '16 / 9',
-                    }
-              }
+              style={{
+                height: '85vh',
+                width: 'min(calc(85vh * 9 / 16), 100%)',
+              }}
             >
-              <VideoEmbed
-                videoId={videoId}
-                isVertical={isVerticalLayout}
-                title={`${activeKey}-video-${idx + 1}`}
-              />
+              <DirectVideoEmbed src={directVideo} title={activeKey} />
             </div>
-          ))}
+          ) : (
+            videos.map((videoId, idx) => (
+              <div
+                key={idx}
+                style={
+                  isVerticalLayout
+                    ? {
+                        height: '85vh',
+                        width: 'min(calc(85vh * 9 / 16), 100%)',
+                      }
+                    : {
+                        width: '100%',
+                        maxWidth: '800px',
+                        aspectRatio: '16 / 9',
+                      }
+                }
+              >
+                <VideoEmbed
+                  videoId={videoId}
+                  isVertical={isVerticalLayout}
+                  title={`${activeKey}-video-${idx + 1}`}
+                />
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>

@@ -70,6 +70,7 @@ const App: React.FC = () => {
             <Route path="/exhibitions/common-ground" element={<Exhibitions />} />
             <Route path="/exhibitions/ordered-chaos" element={<Exhibitions />} />
             <Route path="/exhibitions/transformation" element={<Exhibitions />} />
+            <Route path="/exhibitions/subterranea" element={<Exhibitions />} />
 
             <Route path="/originals" element={<Gallery type="work" />} />
             <Route path="/sculptures" element={<Gallery type="sculptures" />} />
