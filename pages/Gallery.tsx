@@ -121,6 +121,14 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
                 TRIP
               </Link>
             </li>
+            <li>
+              <Link
+                to="/work/i-really-love"
+                className={location.pathname === '/work/i-really-love' ? 'active' : ''}
+              >
+                I REALLY LOVE
+              </Link>
+            </li>
           </>
         ) : isPortraitSection ? (
           <>
