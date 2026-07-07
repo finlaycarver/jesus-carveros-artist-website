@@ -9,6 +9,11 @@ const EXHIBITION_VIDEOS: Record<string, string[]> = {
 
 const EXHIBITION_DIRECT_VIDEOS: Record<string, string> = {
   'subterranea': 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/IMG_5512.MOV',
+  'jesus-loves': 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/IMG_6439.mov',
+};
+
+const EXHIBITION_THUMBNAILS: Record<string, string> = {
+  'subterranea': '/thumbnails/subterranea-thumb.png',
 };
 
 const VideoEmbed: React.FC<{
@@ -99,7 +104,7 @@ const VideoEmbed: React.FC<{
   );
 };
 
-const DirectVideoEmbed: React.FC<{ src: string; title: string }> = ({ src, title }) => {
+const DirectVideoEmbed: React.FC<{ src: string; title: string; thumbnailSrc?: string }> = ({ src, title, thumbnailSrc }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
@@ -138,18 +143,20 @@ const DirectVideoEmbed: React.FC<{ src: string; title: string }> = ({ src, title
             overflow: 'hidden',
           }}
         >
-          <img
-            src="/thumbnails/subterranea-thumb.png"
-            alt={title}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-            }}
-          />
+          {thumbnailSrc && (
+            <img
+              src={thumbnailSrc}
+              alt={title}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+            />
+          )}
           <div
             style={{
               position: 'relative',
@@ -190,6 +197,7 @@ const Exhibitions: React.FC = () => {
   const isOrderedChaos = location.pathname === '/exhibitions/ordered-chaos';
   const isTransformation = location.pathname === '/exhibitions/transformation';
   const isSubterranea = location.pathname === '/exhibitions/subterranea';
+  const isJesusLoves = location.pathname === '/exhibitions/jesus-loves';
   const isCommonGround =
     location.pathname === '/exhibitions/common-ground' || isRootExhibitions;
 
@@ -197,11 +205,16 @@ const Exhibitions: React.FC = () => {
   if (isOrderedChaos) activeKey = 'ordered-chaos';
   if (isTransformation) activeKey = 'transformation';
   if (isSubterranea) activeKey = 'subterranea';
+  if (isJesusLoves) activeKey = 'jesus-loves';
 
   const videos = EXHIBITION_VIDEOS[activeKey] || [];
   const directVideo = EXHIBITION_DIRECT_VIDEOS[activeKey] || null;
+  const directVideoThumbnail = EXHIBITION_THUMBNAILS[activeKey];
   const isVerticalLayout =
-    activeKey === 'common-ground' || activeKey === 'ordered-chaos' || activeKey === 'subterranea';
+    activeKey === 'common-ground' ||
+    activeKey === 'ordered-chaos' ||
+    activeKey === 'subterranea' ||
+    activeKey === 'jesus-loves';
 
   return (
     <div id="cat_main">
@@ -240,6 +253,14 @@ const Exhibitions: React.FC = () => {
                 SUBTERRANEA
               </Link>
             </li>
+            <li>
+              <Link
+                to="/exhibitions/jesus-loves"
+                className={isJesusLoves ? 'active' : ''}
+              >
+                JESUS LOVES
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
@@ -266,7 +287,7 @@ const Exhibitions: React.FC = () => {
                 width: 'min(calc(85vh * 9 / 16), 100%)',
               }}
             >
-              <DirectVideoEmbed src={directVideo} title={activeKey} />
+              <DirectVideoEmbed src={directVideo} title={activeKey} thumbnailSrc={directVideoThumbnail} />
             </div>
           ) : (
             videos.map((videoId, idx) => (
