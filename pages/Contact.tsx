@@ -31,10 +31,10 @@ const Contact: React.FC = () => {
             </p>
             <p>
               <a
-                href="mailto:contact@jesuscarveros.com"
+                href="mailto:jesuscarveros@gmail.com"
                 className="text-black text-[15px] leading-[1.85] border-b border-black/40 hover:border-black hover:text-black transition-colors duration-150 no-underline"
               >
-                contact@jesuscarveros.com
+                jesuscarveros@gmail.com
               </a>
             </p>
             <p>Serious enquiries are welcome.</p>
