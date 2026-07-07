@@ -143,7 +143,7 @@ const DirectVideoEmbed: React.FC<{ src: string; title: string; thumbnailSrc?: st
             overflow: 'hidden',
           }}
         >
-          {thumbnailSrc && (
+          {thumbnailSrc ? (
             <img
               src={thumbnailSrc}
               alt={title}
@@ -154,6 +154,24 @@ const DirectVideoEmbed: React.FC<{ src: string; title: string; thumbnailSrc?: st
                 height: '100%',
                 objectFit: 'cover',
                 display: 'block',
+              }}
+            />
+          ) : (
+            <video
+              src={`${src}#t=0.1`}
+              muted
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              tabIndex={-1}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: 'block',
+                pointerEvents: 'none',
               }}
             />
           )}
