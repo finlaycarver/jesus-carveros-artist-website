@@ -174,7 +174,7 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
         )}
       </ul>
       {isPortraitSection && (
-        <p className="mt-[50px] max-w-[240px] text-[11px] leading-tight tracking-[0.1em] text-[#bdbdbd]">
+        <p className="mt-[50px] max-w-[240px] text-[11px] leading-tight tracking-[0.1em] text-black">
           All portraits by Roderick Field
         </p>
       )}
