@@ -17,7 +17,7 @@ export const SIDEBAR_MAP: Record<string, string[]> = {
   architecture: ['DUNELAND', 'LARKRISE', 'TIDE VIEW', 'CHANDLERS REACH', 'STARVECROW'],
   exhibitions: ['Common Ground', 'ORDERED CHAOS', 'TRANSFORMATION'],
   sculptures: ['Punk Plates'],
-  work: ['BUT I LOVE YOU', 'ADHD', 'BE PRESENT', 'ME', 'PUNK PLATES', 'TRIP', 'I REALLY LOVE'],
+  work: ['I REALLY LOVE', 'BUT I LOVE YOU', 'ADHD', 'BE PRESENT', 'ME', 'PUNK PLATES', 'TRIP'],
   originals: ['ADHD', 'PUNK PLATES', 'BUT I LOVE YOU'],
   'new-work': ['Latest Work', 'In Progress', 'Experimental', 'Studio Views'],
   recordings: [],
@@ -317,7 +317,6 @@ export const ARTWORKS: Record<string, any[]> = {
     { id: 'trip-4', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/trip/IMG_5191.webp', title: 'Trip', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
   ],
   'i-really-love': [
-    { id: 'irl-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/i-really-love/image00010.webp', title: 'I Really Love', year: '2026', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'irl-2', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/i-really-love/image00013.webp', title: 'I Really Love', year: '2026', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'irl-3', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/i-really-love/image00014.webp', title: 'I Really Love', year: '2026', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'irl-4', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/i-really-love/image00015.webp', title: 'I Really Love', year: '2026', medium: 'C-Print', dimensions: '24 x 20 inches' },
