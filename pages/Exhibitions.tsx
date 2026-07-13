@@ -9,11 +9,12 @@ const EXHIBITION_VIDEOS: Record<string, string[]> = {
 
 const EXHIBITION_DIRECT_VIDEOS: Record<string, string> = {
   'subterranea': 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/IMG_5512.MOV',
-  'jesus-loves': 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/IMG_6439.mov',
+  'jesus-loves': 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/IMG_6439.mp4',
 };
 
 const EXHIBITION_THUMBNAILS: Record<string, string> = {
   'subterranea': '/thumbnails/subterranea-thumb.png',
+  'jesus-loves': 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/thumbnails/jesus-loves-thumb.png',
 };
 
 const VideoEmbed: React.FC<{
