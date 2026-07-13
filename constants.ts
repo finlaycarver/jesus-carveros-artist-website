@@ -17,7 +17,7 @@ export const SIDEBAR_MAP: Record<string, string[]> = {
   architecture: ['DUNELAND', 'LARKRISE', 'TIDE VIEW', 'CHANDLERS REACH', 'STARVECROW'],
   exhibitions: ['Common Ground', 'ORDERED CHAOS', 'TRANSFORMATION'],
   sculptures: ['Punk Plates'],
-  work: ['BEING BORN', 'I REALLY LOVE', 'BUT I LOVE YOU', 'ADHD', 'BE PRESENT', 'ME', 'PUNK PLATES', 'TRIP'],
+  work: ['I REALLY LOVE', 'BUT I LOVE YOU', 'ADHD', 'BE PRESENT', 'ME', 'PUNK PLATES', 'TRIP', 'BEING BORN'],
   originals: ['ADHD', 'PUNK PLATES', 'BUT I LOVE YOU'],
   'new-work': ['Latest Work', 'In Progress', 'Experimental', 'Studio Views'],
   recordings: [],

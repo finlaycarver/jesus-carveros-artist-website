@@ -75,14 +75,6 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
           <>
             <li>
               <Link
-                to="/work/being-born"
-                className={location.pathname === '/work/being-born' ? 'active' : ''}
-              >
-                BEING BORN
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/work/i-really-love"
                 className={(location.pathname === '/work/i-really-love' || isRootWork) ? 'active' : ''}
               >
@@ -135,6 +127,14 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
                 className={location.pathname === '/work/trip' ? 'active' : ''}
               >
                 TRIP
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/work/being-born"
+                className={location.pathname === '/work/being-born' ? 'active' : ''}
+              >
+                BEING BORN
               </Link>
             </li>
           </>
