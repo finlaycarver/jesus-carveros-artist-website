@@ -23,7 +23,7 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
 
   let effectiveType = type;
   if (isRootPortraits) effectiveType = 'mexican-wrestler-one';
-  if (isRootWork) effectiveType = 'but-i-love-you';
+  if (isRootWork) effectiveType = 'i-really-love';
   
   const artworks = ARTWORKS[effectiveType] || [];
   const baseSidebar = SIDEBAR_MAP[type] || [];
@@ -76,7 +76,7 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
             <li>
               <Link
                 to="/work/i-really-love"
-                className={location.pathname === '/work/i-really-love' ? 'active' : ''}
+                className={(location.pathname === '/work/i-really-love' || isRootWork) ? 'active' : ''}
               >
                 I REALLY LOVE
               </Link>
@@ -84,7 +84,7 @@ const Gallery: React.FC<GalleryProps> = ({ type }) => {
             <li>
               <Link
                 to="/work/but-i-love-you"
-                className={(location.pathname === '/work/but-i-love-you' || isRootWork) ? 'active' : ''}
+                className={location.pathname === '/work/but-i-love-you' ? 'active' : ''}
               >
                 BUT I LOVE YOU
               </Link>
