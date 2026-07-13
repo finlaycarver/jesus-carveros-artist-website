@@ -4,6 +4,12 @@ import { NavigationLinks } from '../components/NavigationLinks';
 const Home: React.FC = () => {
   useEffect(() => {
     document.title = 'Jesus Carveros — Portfolio';
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    };
   }, []);
 
   return (
