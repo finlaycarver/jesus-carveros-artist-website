@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
           <h1 className="text-[13px] font-semibold uppercase tracking-widest text-black mb-8">Contact</h1>
           <div className="space-y-7 text-[15px] leading-[1.85] text-black/80">
             <p>
-              For enquiries, commissions, collaborations, or exhibitions,<br />
+              For enquiries, commissions, collaborations, or exhibitions,<br className="hidden md:block" />{' '}
               please get in touch.
             </p>
             <p>
