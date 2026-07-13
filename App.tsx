@@ -62,6 +62,7 @@ const App: React.FC = () => {
             <Route path="/work/punk-plates" element={<Gallery type="punk-plates" isSubCategory />} />
             <Route path="/work/trip" element={<Gallery type="trip" isSubCategory />} />
             <Route path="/work/i-really-love" element={<Gallery type="i-really-love" isSubCategory />} />
+            <Route path="/work/being-born" element={<Gallery type="being-born" isSubCategory />} />
 
             <Route path="/portraits" element={<Gallery type="portraits" />} />
             <Route path="/portraits/mexican-wrestler-one" element={<Gallery type="mexican-wrestler-one" isSubCategory />} />

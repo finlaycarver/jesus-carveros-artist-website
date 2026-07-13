@@ -4,7 +4,7 @@ import { NAVIGATION, ARTWORKS } from '../constants';
 
 const PATH_TO_ARTWORK_KEYS: Record<string, string[]> = {
   '/photographs': ['photographs'],
-  '/work': ['but-i-love-you', 'adhd', 'be-present', 'me', 'punk-plates', 'trip'],
+  '/work': ['being-born', 'i-really-love', 'but-i-love-you', 'adhd', 'be-present', 'me', 'punk-plates', 'trip'],
   '/portraits': ['mexican-wrestler-one', 'mexican-wrestler-two', 'mexican-wrestler-three'],
   '/architecture': ['architecture-duneland', 'architecture-larkrise', 'architecture-tide-view'],
   '/exhibitions': ['ordered-chaos'],

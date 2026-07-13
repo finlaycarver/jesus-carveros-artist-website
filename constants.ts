@@ -17,7 +17,7 @@ export const SIDEBAR_MAP: Record<string, string[]> = {
   architecture: ['DUNELAND', 'LARKRISE', 'TIDE VIEW', 'CHANDLERS REACH', 'STARVECROW'],
   exhibitions: ['Common Ground', 'ORDERED CHAOS', 'TRANSFORMATION'],
   sculptures: ['Punk Plates'],
-  work: ['I REALLY LOVE', 'BUT I LOVE YOU', 'ADHD', 'BE PRESENT', 'ME', 'PUNK PLATES', 'TRIP'],
+  work: ['BEING BORN', 'I REALLY LOVE', 'BUT I LOVE YOU', 'ADHD', 'BE PRESENT', 'ME', 'PUNK PLATES', 'TRIP'],
   originals: ['ADHD', 'PUNK PLATES', 'BUT I LOVE YOU'],
   'new-work': ['Latest Work', 'In Progress', 'Experimental', 'Studio Views'],
   recordings: [],
@@ -315,6 +315,10 @@ export const ARTWORKS: Record<string, any[]> = {
     { id: 'trip-2', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/trip/IMG_5170.webp', title: 'Trip', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'trip-3', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/trip/IMG_5169.webp', title: 'Trip', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
     { id: 'trip-4', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/trip/IMG_5191.webp', title: 'Trip', year: '2024', medium: 'C-Print', dimensions: '24 x 20 inches' },
+  ],
+  'being-born': [
+    { id: 'bb-1', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/being-born/image00002.webp', title: 'Being Born', year: '2026', medium: 'C-Print', dimensions: '24 x 20 inches' },
+    { id: 'bb-2', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/being-born/image00003.webp', title: 'Being Born', year: '2026', medium: 'C-Print', dimensions: '24 x 20 inches' },
   ],
   'i-really-love': [
     { id: 'irl-2', imageUrl: 'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/i-really-love/image00013.webp', title: 'I Really Love', year: '2026', medium: 'C-Print', dimensions: '24 x 20 inches' },
