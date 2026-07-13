@@ -37,7 +37,6 @@ const Contact: React.FC = () => {
                 jesuscarveros@gmail.com
               </a>
             </p>
-            <p>Serious enquiries are welcome.</p>
           </div>
         </div>
       </div>
