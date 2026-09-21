@@ -10,6 +10,7 @@ import Writings from './pages/Writings';
 import Architecture from './pages/Architecture';
 import Recordings from './pages/Recordings';
 import Films from "./pages/Films";
+import StarvecrowPress from "./pages/StarvecrowPress";
 
 const ScrollToTop: React.FC = () => {
   const location = useLocation();
@@ -82,6 +83,7 @@ const App: React.FC = () => {
             <Route path="/writings" element={<Writings />} />
             <Route path="/recordings" element={<Recordings />} />
             <Route path="/films" element={<Films />} />
+            <Route path="/films/starvecrow" element={<StarvecrowPress />} />
             <Route path="/biography" element={<Bio />} />
             <Route path="/biography/contact" element={<Contact />} />
             <Route path="/contact" element={<Contact />} />

@@ -1,10 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { VideoEmbed } from '../components/VideoEmbed';
 
-const FILM_VIDEOS: string[] = [
-  'pdyUuBfRrCw',
-  'VN-2wWdMx2k',
-  'ixAvgIqtxFY'
+interface FilmVideo {
+  videoId: string;
+  title: string;
+}
+
+const FILM_VIDEOS: FilmVideo[] = [
+  { videoId: 'pdyUuBfRrCw', title: '"Are you going anywhere nice on holiday?" — Video installation' },
+  { videoId: 'VN-2wWdMx2k', title: '"I like to dance to classical music in slow motion" — Video installation' },
+  { videoId: 'ixAvgIqtxFY', title: '"I have no idea what will happen to me" — Video installation' },
 ];
+
+const BLOB_VIDEO_TITLE = 'Submission';
 
 const BLOB_VIDEO =
   'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/Submission.mp4';
@@ -12,126 +21,27 @@ const BLOB_VIDEO =
 const BLOB_VIDEO_POSTER =
   'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/submission-thumb.jpg';
 
-const VideoEmbed: React.FC<{ videoId?: string; blobVideo?: string; poster?: string }> = ({
-  videoId,
-  blobVideo,
-  poster
-}) => {
-  const [play, setPlay] = useState(false);
-
-  return (
-    <button
-      type="button"
-      aria-label="Play video"
-      onClick={() => !play && setPlay(true)}
-      style={{
-        position: 'relative',
-        width: '100%',
-        maxWidth: '800px',
-        aspectRatio: '16 / 9',
-        cursor: 'pointer',
-        overflow: 'hidden',
-        background: '#000',
-        border: 'none',
-        padding: 0,
-        display: 'block'
-      }}
-    >
-      {play ? (
-        blobVideo ? (
-          <video
-            controls
-            autoPlay
-            preload="metadata"
-            playsInline
-            poster={poster}
-            style={{
-              width: '100%',
-              height: '100%',
-              display: 'block',
-              background: '#000'
-            }}
-          >
-            <source src={blobVideo} type="video/mp4" />
-          </video>
-        ) : (
-          <iframe
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&controls=1&playsinline=1`}
-            style={{
-              width: '100%',
-              height: '100%',
-              border: 'none',
-              display: 'block'
-            }}
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            title={videoId}
-          />
-        )
-      ) : (
-        <>
-          <img
-            src={
-              blobVideo && poster
-                ? poster
-                : `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
-            }
-            alt=""
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-          />
-
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              background: 'rgba(0,0,0,0.2)'
-            }}
-          >
-            <div
-              style={{
-                width: '70px',
-                height: '70px',
-                borderRadius: '50%',
-                background: 'rgba(255,255,255,0.9)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <div
-                style={{
-                  width: 0,
-                  height: 0,
-                  borderTop: '12px solid transparent',
-                  borderBottom: '12px solid transparent',
-                  borderLeft: '18px solid black',
-                  marginLeft: '4px'
-                }}
-              />
-            </div>
-          </div>
-        </>
-      )}
-    </button>
-  );
-};
-
 const Films: React.FC = () => {
+  const location = useLocation();
+
   useEffect(() => {
     document.title = 'Films — Jesus Carveros';
   }, []);
 
   return (
     <div id="cat_main">
-      <div id="cat_left"></div>
+      <div id="cat_left">
+        <div className="pt-7">
+          <ul className="cat-list">
+            <li>
+              <Link to="/films" className={location.pathname === '/films' ? 'active' : ''}>FILMS</Link>
+            </li>
+            <li>
+              <Link to="/films/starvecrow" className={location.pathname === '/films/starvecrow' ? 'active' : ''}>STARVECROW</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div id="cat_right">
         <h1 className="sr-only">Films</h1>
         <div
@@ -147,13 +57,14 @@ const Films: React.FC = () => {
             paddingRight: '0',
           }}
         >
-          {FILM_VIDEOS.map((id, idx) => (
-            <VideoEmbed key={idx} videoId={id} />
+          {FILM_VIDEOS.map((video) => (
+            <VideoEmbed key={video.videoId} videoId={video.videoId} title={video.title} />
           ))}
 
           <VideoEmbed
             blobVideo={BLOB_VIDEO}
             poster={BLOB_VIDEO_POSTER}
+            title={BLOB_VIDEO_TITLE}
           />
         </div>
       </div>
