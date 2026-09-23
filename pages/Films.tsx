@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { VideoEmbed } from '../components/VideoEmbed';
 
 interface FilmVideo {
@@ -22,26 +21,13 @@ const BLOB_VIDEO_POSTER =
   'https://q5uere11mbgam1g1.public.blob.vercel-storage.com/films/submission-thumb.jpg';
 
 const Films: React.FC = () => {
-  const location = useLocation();
-
   useEffect(() => {
     document.title = 'Films — Jesus Carveros';
   }, []);
 
   return (
     <div id="cat_main">
-      <div id="cat_left">
-        <div className="pt-7">
-          <ul className="cat-list">
-            <li>
-              <Link to="/films" className={location.pathname === '/films' ? 'active' : ''}>FILMS</Link>
-            </li>
-            <li>
-              <Link to="/films/starvecrow" className={location.pathname === '/films/starvecrow' ? 'active' : ''}>STARVECROW</Link>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <div id="cat_left"></div>
       <div id="cat_right">
         <h1 className="sr-only">Films</h1>
         <div
